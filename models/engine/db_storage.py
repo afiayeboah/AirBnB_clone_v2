@@ -11,6 +11,7 @@ from models.review import Review
 from models.amenity import Amenity
 import importlib
 
+
 class DBStorage:
     """ new class for sqlAlchemy """
     __engine = None
@@ -44,7 +45,8 @@ class DBStorage:
                 key = "{}.{}".format(type(elem).__name__, elem.id)
                 dic[key] = elem
         else:
-            module_names = ["state", "city", "user", "place", "review", "amenity"]
+            module_names = ["state", "city", "user", "place",
+                            "review", "amenity"]
             for module_name in module_names:
                 module = importlib.import_module("models." + module_name)
                 classes = getattr(module, module_name.capitalize())

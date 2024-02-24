@@ -1,6 +1,7 @@
 import json
 from models.base_model import BaseModel
 
+
 class FileStorage:
     """This class manages storage of hbnb models in JSON format"""
     __file_path = 'file.json'
@@ -9,7 +10,8 @@ class FileStorage:
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
         if cls:
-            return {k: v for k, v in self.__objects.items() if isinstance(v, cls)}
+            return {k: v for k, v in self.__objects.items()
+                    if isinstance(v, cls)}
         return self.__objects
 
     def new(self, obj):
